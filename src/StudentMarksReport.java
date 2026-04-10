@@ -1,0 +1,43 @@
+package WRAPPERCLASS;
+
+public class StudentMarksReport {
+    public static void main(String[] args) {
+
+
+        Object[] inputs = {"85", 95, Integer.valueOf(88), "null", "abc"};
+
+        int sum = 0;
+        int count = 0;
+
+        for (Object obj : inputs) {
+            try {
+                if (obj == null) {
+                    continue;
+                }
+
+
+                String value = obj.toString();
+
+
+                if (value.equalsIgnoreCase("null")) {
+                    continue;
+                }
+
+
+                Integer mark = Integer.valueOf(value);
+
+                sum += mark;
+                count++;
+
+            } catch (Exception e) {
+            }
+        }
+
+        if (count > 0) {
+            double average = (double) sum / count;
+            System.out.println("Average Marks: " + average);
+        } else {
+            System.out.println("No valid marks found.");
+        }
+    }
+}
